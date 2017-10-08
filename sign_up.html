@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GoGrocery</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Sign Up Here!</h1>
+
+
+<?php
+
+$monthName = array(1=> "January", "February", "March", "April", "May", "June", "July", "August",
+                      "September", "October", "November", "December");
+$today = time();
+
+echo "<form action='processform.php' method='POST'>\n";
+
+$todayMO = date("n", $today);
+echo "<select name='dateMO'>\n";
+for($n = 1;$n <= 12;$n++)
+{
+  echo "<option value = $n\n";
+  if ($todayMO == $n)
+      echo " selected";
+  echo "> {$monthName[$n]}\n";
+}
+echo "</select>";
+
+$todayDay = date("d",$today);
+echo "<select name='dateDay'>\n";
+for ($n = 1;$n <= 31;$n++)
+{
+  echo " <option value=$n";
+  if ($todayDay == $n)
+    echo " selected";
+  echo "> $n\n";
+}
+echo "</select>\n";
+
+$startYr = date("Y", $today);
+echo "<select name = 'dateYr'>\n";
+for($n=$startYr;$n <= $startYr + 3; $n++)
+{
+  echo " <option value=$n";
+  if ($startYr == $n)
+  {
+    echo " selected";
+  }
+  echo "> $n\n";
+}
+
+echo "</select>\n";
+echo "</form>\n";
+
+
+echo "<table>";
+echo "<form action='processform.php' method='POST'>
+<tr><td align='right'>First Name:</td>
+  <td><input type='text' name='first_name' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>Last Name:</td>
+  <td><input type='text' name='Last_name' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>Phone:</td>
+  <td><input type='text' name='Phone' maxlength='15' size='15'></td><tr>
+
+<tr><td align='right'>Email:</td>
+  <td><input type='text' name='email' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>Address</td>
+  <td><input type='text' name='address' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>State</td>
+  <td><input type='text' name='state' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>ZipCode</td>
+  <td><input type='text' name='zipcode' maxlength='65' size='40'></td></tr>
+
+<tr><td align='right'>Country</td>
+  <td><input type='text' name='country' maxlength='65' size='40'></td></tr>
+
+<tr><td colspan='2' align='center'><p><input type='submit' value='Sign Up!'></P>
+  </td></tr>
+<form>";
+?>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>
